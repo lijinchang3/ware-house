@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Description :登录前端控制器
  */
 @RestController
-@RequestMapping("login")
+@RequestMapping("login/")
 public class LoginController {
 
     /**

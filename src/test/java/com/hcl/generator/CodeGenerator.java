@@ -63,9 +63,9 @@ public class CodeGenerator {
                 //数据表命名到实体的命名策略
                 .setNaming(NamingStrategy.underline_to_camel)
                 //表名前缀
-            /*    .setTablePrefix("tbl_")*/
+                /*.setTablePrefix("sys_")*/
                 //要生成的表
-                .setInclude("sys_user");
+                .setInclude("sys_loginfo");
         //4. 包名策略配置
         PackageConfig packageConfig = new PackageConfig();
         packageConfig
