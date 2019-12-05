@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -24,7 +25,7 @@ public class SysLoginfo implements Serializable {
 
     private String loginip;
 
-    private LocalDateTime logintime;
+    private Date logintime;
 
 
     public Integer getId() {
@@ -51,11 +52,11 @@ public class SysLoginfo implements Serializable {
         this.loginip = loginip;
     }
 
-    public LocalDateTime getLogintime() {
+    public Date getLogintime() {
         return logintime;
     }
 
-    public void setLogintime(LocalDateTime logintime) {
+    public void setLogintime(Date logintime) {
         this.logintime = logintime;
     }
 

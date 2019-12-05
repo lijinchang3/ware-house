@@ -29,6 +29,12 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
+  #热部署生效
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+
 
 #mybatisPlus相关配置
 mybatis-plus:

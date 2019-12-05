@@ -25,6 +25,10 @@ public class LoginfoVo extends SysLoginfo {
      */
     private Integer limit = 10;
     /**
+     * 批量删除的主键id数组
+     */
+    private Integer[] ids;
+    /**
      * 开始时间
      */
     @DateTimeFormat(pattern = DatePattern.NORM_DATETIME_PATTERN)
