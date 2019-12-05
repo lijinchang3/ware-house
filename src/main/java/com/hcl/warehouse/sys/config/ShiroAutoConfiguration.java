@@ -17,6 +17,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication.Type;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,11 +27,14 @@ import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import lombok.Data;
 
 /**
- *
+ * @Author :liangHuang.
+ * @Date :2019/12/5 12:09
+ * @Description : shiro配置相关
  */
 @Configuration
 @ConditionalOnWebApplication(type = Type.SERVLET)
 @ConditionalOnClass(value = { SecurityManager.class })
+@EnableConfigurationProperties({ShiroAutoConfiguration.class})
 @ConfigurationProperties(prefix = "shiro")
 @Data
 public class ShiroAutoConfiguration {

@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -34,7 +35,7 @@ public class SysUser implements Serializable {
 
     private Integer deptid;
 
-    private LocalDateTime hiredate;
+    private Date hiredate;
 
     private Integer mgr;
 
@@ -119,11 +120,11 @@ public class SysUser implements Serializable {
         this.deptid = deptid;
     }
 
-    public LocalDateTime getHiredate() {
+    public Date getHiredate() {
         return hiredate;
     }
 
-    public void setHiredate(LocalDateTime hiredate) {
+    public void setHiredate(Date hiredate) {
         this.hiredate = hiredate;
     }
 
