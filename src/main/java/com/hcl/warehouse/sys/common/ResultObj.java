@@ -19,9 +19,13 @@ public class ResultObj {
     public static final ResultObj LOGIN_ERROR_PASS = new ResultObj(Constast.ERROR, "登录失败,用户名或密码不正确");
 
     public static final ResultObj LOGIN_ERROR_CODE = new ResultObj(Constast.ERROR, "登录失败,验证码不正确");
-
+    /**
+     * 状态码
+     */
     private Integer code;
-
+    /**
+     * 信息
+     */
     private String msg;
 
 }
