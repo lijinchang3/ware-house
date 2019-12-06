@@ -40,7 +40,7 @@ public class SysLoginfoController {
         queryWrapper.like(StrUtil.isNotBlank(loginfoVo.getLoginname()), "loginname", loginfoVo.getLoginname());
         queryWrapper.like(StrUtil.isNotBlank(loginfoVo.getLoginip()), "loginip", loginfoVo.getLoginip());
         queryWrapper.ge(loginfoVo.getStartTime() != null, "logintime", loginfoVo.getStartTime());
-        queryWrapper.le(loginfoVo.getStartTime() != null, "logintime", loginfoVo.getStartTime());
+        queryWrapper.le(loginfoVo.getEndTime() != null, "logintime", loginfoVo.getEndTime());
         queryWrapper.orderByDesc("logintime");
         this.loginfoService.page(page, queryWrapper);
         return new DateGridView(page.getTotal(), page.getRecords());

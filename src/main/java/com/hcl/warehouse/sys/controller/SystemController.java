@@ -44,7 +44,16 @@ public class SystemController {
      */
     @RequestMapping(value = "toLoginfoManager")
     public String toLoginfoManager(){
-        return "system/loginfo/loginfoManager.html";
+        return "system/loginfo/loginfoManager";
+    }
+
+    /**
+     * 跳转到公告管理
+     * @return
+     */
+    @RequestMapping(value = "toNoticeManager")
+    public String toNoticeManager(){
+        return "system/notice/noticeManager";
     }
 
 }
