@@ -1,5 +1,6 @@
 package com.hcl.generator;
 
+import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
@@ -7,6 +8,9 @@ import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
 import com.baomidou.mybatisplus.generator.config.GlobalConfig;
 import com.baomidou.mybatisplus.generator.config.PackageConfig;
 import com.baomidou.mybatisplus.generator.config.StrategyConfig;
+import com.baomidou.mybatisplus.generator.config.converts.MySqlTypeConvert;
+import com.baomidou.mybatisplus.generator.config.rules.DbColumnType;
+import com.baomidou.mybatisplus.generator.config.rules.IColumnType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import org.junit.jupiter.api.Test;
 
@@ -44,7 +48,15 @@ public class CodeGenerator {
         DataSourceConfig dataSourceConfig = new DataSourceConfig();
         dataSourceConfig
                 //数据库类型
-                .setDbType(DbType.MYSQL)
+                .setDbType(DbType.MYSQL).setTypeConvert(new MySqlTypeConvert(){
+            @Override
+            public IColumnType processTypeConvert(GlobalConfig globalConfig, String fieldType) {
+                if (fieldType.toLowerCase().contains( "datetime" )){
+                    return DbColumnType.DATE;
+                }
+                return super.processTypeConvert(globalConfig, fieldType);
+            }
+        })
                 //驱动名称
                 .setDriverName("com.mysql.cj.jdbc.Driver")
                 //地址
@@ -65,7 +77,7 @@ public class CodeGenerator {
                 //表名前缀
                 /*.setTablePrefix("sys_")*/
                 //要生成的表
-                .setInclude("sys_loginfo");
+                .setInclude("sys_notice");
         //4. 包名策略配置
         PackageConfig packageConfig = new PackageConfig();
         packageConfig
