@@ -1,9 +1,9 @@
 package com.hcl.warehouse.sys.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import java.util.Date;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * <p>
