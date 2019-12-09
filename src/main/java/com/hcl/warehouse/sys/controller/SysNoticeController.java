@@ -6,7 +6,7 @@ import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.hcl.warehouse.sys.common.DateGridView;
+import com.hcl.warehouse.sys.common.DataGridView;
 import com.hcl.warehouse.sys.common.ResultObj;
 import com.hcl.warehouse.sys.common.WebUtils;
 import com.hcl.warehouse.sys.entity.SysNotice;
@@ -37,7 +37,7 @@ public class SysNoticeController {
      * @return
      */
     @RequestMapping(value = "loadAllNotice")
-    public DateGridView loadAllNotice(NoticeVo noticeVo){
+    public DataGridView loadAllNotice(NoticeVo noticeVo){
         IPage<SysNotice> page = new Page<>(noticeVo.getPage(), noticeVo.getLimit());
         QueryWrapper<SysNotice> queryWrapper = new QueryWrapper<>();
         queryWrapper.like(StrUtil.isNotBlank(noticeVo.getTitle()), "title", noticeVo.getTitle());
@@ -46,7 +46,7 @@ public class SysNoticeController {
         queryWrapper.le(noticeVo.getEndTime() != null, "createtime", noticeVo.getEndTime());
         queryWrapper.orderByDesc("createtime");
         this.noticeService.page(page, queryWrapper);
-        return new DateGridView(page.getTotal(), page.getRecords());
+        return new DataGridView(page.getTotal(), page.getRecords());
     }
 
     /**

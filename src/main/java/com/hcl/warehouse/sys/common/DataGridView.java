@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DateGridView {
+public class DataGridView {
     /**
      * 编码
      */
@@ -30,12 +30,12 @@ public class DateGridView {
      */
     private Object data;
 
-    public DateGridView(Long count, Object data) {
+    public DataGridView(Long count, Object data) {
         this.count = count;
         this.data = data;
     }
 
-    public DateGridView(Object date) {
+    public DataGridView(Object date) {
         this.data = date;
     }
 

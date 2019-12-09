@@ -28,7 +28,7 @@ public class MenuController {
      * @return
      */
     @RequestMapping(value = "loadIndexLeftMenuJson")
-    public DateGridView loadIndexLeftMenuJson(PermissionVo permissionVo){
+    public DataGridView loadIndexLeftMenuJson(PermissionVo permissionVo){
         //查询所有菜单
         QueryWrapper<SysPermission> permissionQueryWrapper = new QueryWrapper<>();
         permissionQueryWrapper.eq("type", Constast.TYPE_MENU);
@@ -55,7 +55,7 @@ public class MenuController {
         }
         //构造层级关系
         List<TreeNode> list2 = TreeNodeBuilder.build(treeNodes, 1);
-        return new DateGridView(list2);
+        return new DataGridView(list2);
     }
 
     @Autowired

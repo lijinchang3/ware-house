@@ -6,7 +6,7 @@ import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.hcl.warehouse.sys.common.DateGridView;
+import com.hcl.warehouse.sys.common.DataGridView;
 import com.hcl.warehouse.sys.common.ResultObj;
 import com.hcl.warehouse.sys.entity.SysLoginfo;
 import com.hcl.warehouse.sys.service.ISysLoginfoService;
@@ -34,7 +34,7 @@ public class SysLoginfoController {
      * @return
      */
     @RequestMapping(value = "loadAllLoginfo")
-    public DateGridView loadAllLoginfo(LoginfoVo loginfoVo){
+    public DataGridView loadAllLoginfo(LoginfoVo loginfoVo){
         IPage<SysLoginfo> page = new Page<>(loginfoVo.getPage(), loginfoVo.getLimit());
         QueryWrapper<SysLoginfo> queryWrapper = new QueryWrapper<>();
         queryWrapper.like(StrUtil.isNotBlank(loginfoVo.getLoginname()), "loginname", loginfoVo.getLoginname());
@@ -43,7 +43,7 @@ public class SysLoginfoController {
         queryWrapper.le(loginfoVo.getEndTime() != null, "logintime", loginfoVo.getEndTime());
         queryWrapper.orderByDesc("logintime");
         this.loginfoService.page(page, queryWrapper);
-        return new DateGridView(page.getTotal(), page.getRecords());
+        return new DataGridView(page.getTotal(), page.getRecords());
     }
 
     /**
