@@ -1,19 +1,23 @@
 package com.hcl.warehouse.sys.controller;
 
 
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.hcl.warehouse.sys.common.DateGridView;
+import com.hcl.warehouse.sys.common.ResultObj;
+import com.hcl.warehouse.sys.common.WebUtils;
 import com.hcl.warehouse.sys.entity.SysNotice;
+import com.hcl.warehouse.sys.entity.SysUser;
 import com.hcl.warehouse.sys.service.ISysNoticeService;
 import com.hcl.warehouse.sys.vo.NoticeVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Date;
 
 /**
  * <p>
@@ -43,6 +47,66 @@ public class SysNoticeController {
         queryWrapper.orderByDesc("createtime");
         this.noticeService.page(page, queryWrapper);
         return new DateGridView(page.getTotal(), page.getRecords());
+    }
+
+    /**
+     * 添加公告
+     * @param noticeVo
+     * @return
+     */
+    @RequestMapping(value = "addNotice")
+    public ResultObj addNotice(NoticeVo noticeVo){
+        try {
+            noticeVo.setCreatetime(new Date());
+            SysUser user = (SysUser)WebUtils.getSession().getAttribute("user");
+            noticeVo.setOpername(user.getName());
+            this.noticeService.saveOrUpdate(noticeVo);
+            return ResultObj.ADD_SUCCESS;
+        } catch (Exception e) {
+            return ResultObj.ADD_ERROR;
+        }
+    }
+
+    /**
+     * 修改公告
+     * @return
+     */
+    @RequestMapping(value = "updateNotice")
+    public ResultObj updateNotice(NoticeVo noticeVo){
+        try {
+            this.noticeService.updateById(noticeVo);
+            return ResultObj.UPDATE_SUCCESS;
+        } catch (Exception e) {
+            return ResultObj.UPDATE_ERROR;
+        }
+    }
+
+    /**
+     * 删除公告
+     * @return
+     */
+    @RequestMapping(value = "deleteNotice")
+    public ResultObj deleteNotice(Integer id){
+        try {
+            this.noticeService.removeById(id);
+            return ResultObj.DELETE_SUCCESS;
+        } catch (Exception e) {
+            return ResultObj.DELETE_ERROR;
+        }
+    }
+
+    /**
+     * 批量删除公告
+     * @return
+     */
+    @RequestMapping(value = "batchDeleteNotice")
+    public ResultObj batchDeleteNotice(NoticeVo noticeVo){
+        try {
+            this.noticeService.removeByIds(CollUtil.toList(noticeVo.getIds()));
+            return ResultObj.DELETE_SUCCESS;
+        } catch (Exception e) {
+            return ResultObj.DELETE_ERROR;
+        }
     }
 
     @Autowired
