@@ -60,7 +60,7 @@ public class SysNoticeController {
             noticeVo.setCreatetime(new Date());
             SysUser user = (SysUser)WebUtils.getSession().getAttribute("user");
             noticeVo.setOpername(user.getName());
-            this.noticeService.saveOrUpdate(noticeVo);
+            this.noticeService.save(noticeVo);
             return ResultObj.ADD_SUCCESS;
         } catch (Exception e) {
             return ResultObj.ADD_ERROR;
