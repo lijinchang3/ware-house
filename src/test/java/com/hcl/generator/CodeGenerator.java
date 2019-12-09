@@ -1,6 +1,5 @@
 package com.hcl.generator;
 
-import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
@@ -77,7 +76,7 @@ public class CodeGenerator {
                 //表名前缀
                 /*.setTablePrefix("sys_")*/
                 //要生成的表
-                .setInclude("sys_notice");
+                .setInclude("sys_dept");
         //4. 包名策略配置
         PackageConfig packageConfig = new PackageConfig();
         packageConfig
