@@ -28,7 +28,7 @@ public class TreeNode {
     /**
      * 0代表不选中  1代表选中
      */
-    private String checkArr;
+   /* private String checkArr;*/
 
     /**
      *首页左边导航树的构造器
@@ -66,12 +66,12 @@ public class TreeNode {
      * @param spread
      * @param checkArr
      */
-    public TreeNode(Integer id, Integer pid, String title, Boolean spread, String checkArr) {
+   /* public TreeNode(Integer id, Integer pid, String title, Boolean spread, String checkArr) {
         super();
         this.id = id;
         this.pid = pid;
         this.title = title;
         this.spread = spread;
         this.checkArr = checkArr;
-    }
+    }*/
 }

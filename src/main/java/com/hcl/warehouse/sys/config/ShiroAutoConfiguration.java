@@ -50,9 +50,9 @@ public class ShiroAutoConfiguration {
 	 */
 	private int hashIterations = 2;
 	/**
-	 * 默认的登录页面
+	 * 默认的首页
 	 */
-	private String loginUrl = "/index.html";
+	private String loginUrl;
 
 	private String[] anonUrls;
 	private String logOutUrl;
