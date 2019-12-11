@@ -60,3 +60,15 @@ shiro:
   log-out-url: /login/logout*
   authc-ulrs:
     - /**
+
+#xxljob配置
+xxl:
+  job:
+    accessToken:
+    address: http://127.0.0.1:8080/xxl-job-admin
+    #执行器名称
+    appName: ware-house-job
+    ip:
+    port: 9999
+    logretentiondays: 1
+    logPath:
