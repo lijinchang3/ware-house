@@ -106,6 +106,12 @@
             <artifactId>xxl-job-core</artifactId>
             <version>2.1.1</version>
         </dependency>
+        <!--密码加密等-->
+        <dependency>
+            <groupId>com.github.ulisesbocchio</groupId>
+            <artifactId>jasypt-spring-boot-starter</artifactId>
+            <version>2.1.1</version>
+        </dependency>
         <!--spring配置文件绑定提示-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

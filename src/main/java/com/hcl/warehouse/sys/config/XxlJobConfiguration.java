@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
  * @Date :2019/12/11 15:11
  * @Description :xxl任务调度配置
  */
-@Configuration
+/*@Configuration*/
 @ConfigurationProperties(value = "xxl.job")
 @EnableConfigurationProperties({XxlJobConfiguration.class})
 @Setter
