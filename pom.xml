@@ -20,7 +20,7 @@
         <!--mybatisPlus版本号-->
         <mybatisplus.version>3.2.0</mybatisplus.version>
         <!--shiro权限框架版本号-->
-        <shiro.version>1.4.1</shiro.version>
+        <shiro.version>1.7.1</shiro.version>
         <!--druid数据源版本号-->
         <druid.version>1.1.18</druid.version>
         <!--糊涂开发工具版本号-->
